@@ -40,7 +40,9 @@ class _SimpleMapsScreenState extends State<SimpleMapsScreen> {
             onPressed: () {
               goToTEC();
             },
-            child: Text("Go to the Campus"),
+            backgroundColor: Colors.blue,
+            child: Text("Go to the Campus", style: TextStyle(color: Colors.white)),
+
           ),
         ),
       ),

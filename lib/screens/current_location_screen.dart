@@ -13,7 +13,7 @@ class CurrentLocationScreen extends StatefulWidget {
 class _CurrentLocationScreenState extends State<CurrentLocationScreen> {
   late GoogleMapController googleMapController;
 
-  static const CameraPosition initialCameraPosition = CameraPosition(target: LatLng(37.42796133580664, -122.085749655962), zoom: 14);
+  static const CameraPosition initialCameraPosition = CameraPosition(target: LatLng(47.42796133580664, -122.085749655962), zoom: 14);
 
   Set<Marker> markers = {};
 
@@ -21,8 +21,9 @@ class _CurrentLocationScreenState extends State<CurrentLocationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("User current location"),
+        title: const Text("User current location", style: TextStyle(color: Colors.white)),
         centerTitle: true,
+        backgroundColor: Colors.blue,
       ),
       body: GoogleMap(
         initialCameraPosition: initialCameraPosition,
@@ -48,8 +49,9 @@ class _CurrentLocationScreenState extends State<CurrentLocationScreen> {
           setState(() {});
 
         },
-        label: const Text("Current Location"),
-        icon: const Icon(Icons.location_history),
+        label: const Text("Current Location", style: TextStyle(color: Colors.white,),),
+        icon: const Icon(Icons.location_history,  color: Colors.white,),
+        backgroundColor: Colors.blue,
       ),
     );
   }
@@ -78,7 +80,7 @@ class _CurrentLocationScreenState extends State<CurrentLocationScreen> {
       return Future.error('Location permissions are permanently denied');
     }
 
-    Position position = await Geolocator.getCurrentPosition();
+    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
 
     return position;
   }
