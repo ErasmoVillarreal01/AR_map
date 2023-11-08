@@ -52,5 +52,6 @@ class _ARMapState extends State<ARMap> {
       return const SizedBox();
     }
   }
+
 }
 
